@@ -1,11 +1,10 @@
-
 package os;
+
 public class PCB implements Comparable<PCB>{
     private int Pid;   // 进程名
     private int RequiredTime;  // 运行时间
     private int Priority;  // 优先级
     private int Memory;  // 内存大小
-    private int ComeTime; // 进入CPU时间
     private  int cpu;//进入的cpu序号
 
     // 初始化，这里初始化ComeTime = 0
@@ -14,7 +13,6 @@ public class PCB implements Comparable<PCB>{
         this.RequiredTime = RequiredTime;
         this.Priority = Priority;
         this.Memory = Memory;
-        this.ComeTime = -1;
         this.cpu=-1;
     }
 
@@ -32,9 +30,6 @@ public class PCB implements Comparable<PCB>{
     }
     public int getCpu() {
         return cpu;
-    }
-    public void setComeTime(int time){
-        this.ComeTime = time;
     }
     public void setCpu(int cpu){
         this.cpu = cpu;

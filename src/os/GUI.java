@@ -75,16 +75,8 @@ public class GUI extends JFrame{
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        } catch (InstantiationException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        } catch (IllegalAccessException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        } catch (UnsupportedLookAndFeelException e1) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
+                 UnsupportedLookAndFeelException e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
@@ -248,7 +240,6 @@ public class GUI extends JFrame{
         // 设置 cpu1TextField 的焦点监听器
         // 点击前后颜色进行一个变化
         // 保存 cpu1TextField 原来的背景色
-        final String[] cpu1Text = {""};
         Color originalColor = cpu1TextField.getBackground();
         cpu1TextField.addFocusListener(new FocusListener() {
             @Override
@@ -288,7 +279,7 @@ public class GUI extends JFrame{
         //按钮面板界面
         buttonPanel=new JPanel();
         buttonPanel.setBounds(0,650,400,170);
-        buttonPanel.setLayout(null);;
+        buttonPanel.setLayout(null);
 
         createBtn = new JButton("创建进程");
         createBtn.setBounds(20,10,170,30);
@@ -325,7 +316,7 @@ public class GUI extends JFrame{
         runBtn.addActionListener(new runActionListener());
 
 
-        /**内存数组初始化 **/
+        /*内存数组初始化 **/
         for(int i=0;i<Infomation.memorySize;i++){
             if(i==0){
                 memoryList[i]=9999; // 代表os
@@ -416,7 +407,7 @@ public class GUI extends JFrame{
             time ++;
             timeJlb.setText(Integer.toString(time));
 
-            /**cpu界面置空**/
+            /*cpu界面置空**/
             if(cpuList[0]==null){
                 cpu1TextField.setText("");
                 progressBar1.reset();
@@ -426,7 +417,7 @@ public class GUI extends JFrame{
                 progressBar2.reset();
             }
 
-            /** CPU中的程序运行一秒 **/
+            /* CPU中的程序运行一秒 **/
             for(int i=0;i<cpuList.length;i++){
                 try{
                     PCB p=cpuList[i];
@@ -451,7 +442,7 @@ public class GUI extends JFrame{
                     }
 
                     // 当进程运行结束时--改变CPUlist和memorylist和label，先不改变进度条
-                    if(end==true){
+                    if(end){
                         if(p.getCpu()==1){
                             cpu1TextField.setText("");
                         }else if(p.getCpu()==2){
@@ -477,10 +468,12 @@ public class GUI extends JFrame{
                         readyList.add(p);
                         readyTable.updateTable(readyList,true);
                     }
-                }catch(Exception ex){}
+                }catch(Exception ex) {
+                    ex.printStackTrace();
+                }
             }
 
-            /** 从就绪队列中挑选进程到CPU **/
+            /* 从就绪队列中挑选进程到CPU **/
             while(!readyList.isEmpty()) {
                 PCB p = readyList.getFirst();
                 if (cpuList[0]==null) {
@@ -501,7 +494,7 @@ public class GUI extends JFrame{
                 readyTable.updateTable(readyList,true);
             }
 
-            /** 从后备队列挑选进程到就绪队列 **/
+            /* 从后备队列挑选进程到就绪队列 **/
             int num=0;
             if(cpuList[0]!=null){
                 num++;
@@ -520,8 +513,6 @@ public class GUI extends JFrame{
                 }
                 System.out.println("分配"+pb.getPid());
                 deleted.add(pb);
-//                reserveList.remove(pb);
-//                reserveTable.updateTable(reserveList,false);
                 readyList.add(pb);
                 readyTable.updateTable(readyList,true);
             }

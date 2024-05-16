@@ -14,7 +14,7 @@ public class ProgressBar extends JProgressBar {
     // 更新进度条值+1
     public void updateValue() throws Exception {
         super.setValue(getValue()+1);
-        if(getValue()!=Infomation.singleTime){ // 5是时间片大小
+        if(getValue()!=Infomation.singleTime){
             super.setForeground(Color.RED);
         }else if(getValue()==Infomation.singleTime){
             super.setForeground(Color.GREEN);
@@ -27,6 +27,5 @@ public class ProgressBar extends JProgressBar {
         super.setValue(0);
         super.setForeground(Color.GRAY);
     }
-
 }
 

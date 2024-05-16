@@ -1,7 +1,6 @@
 package os;
 
 import javax.swing.*;
-import os.Infomation;
 
 class Start {
     JPanel myPanel = new JPanel();

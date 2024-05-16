@@ -16,7 +16,7 @@ public class MemoryPanel extends JPanel {
     public void updateMemoryList(int[] memoryList) {
         // 更新内存数据
         this.memoryList = memoryList;
-        System.out.println("updatedates");
+        System.out.println("update.");
         tip = 1;
         // 重新绘制组件
         revalidate();
@@ -29,8 +29,7 @@ public class MemoryPanel extends JPanel {
         super.paintComponent(g);
         // 绘制内存图形
         // 设置标志词，初始化的时候不用重绘面板；只有当更新数据的时候才重绘面板
-        if(tip == 1)
-        {
+        if(tip == 1) {
             System.out.println("repaint");
             Color[] colorList = new Color[5];
             colorList[0] = new Color(199, 237, 233);
@@ -75,7 +74,6 @@ public class MemoryPanel extends JPanel {
                     g2.drawString(("起始地址:"+ i + " 内存大小:"+ mem), 10, i*rev + 3*(mem*rev)/4);
                     i += mem - 1;
                     System.out.println("此时下标为"+i);
-                }else{  // 内存空闲
                 }
             }
         }
