@@ -421,6 +421,7 @@ public class GUI extends JFrame{
             for(int i=0;i<cpuList.length;i++){
                 try{
                     PCB p=cpuList[i];
+                    if (p == null) continue;
                     boolean end=false;// 运行结束
                     boolean singletimeout=false;// 时间片用完
 
