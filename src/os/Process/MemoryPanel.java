@@ -1,4 +1,6 @@
-package os;
+package os.Process;
+
+import os.Infomation;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +11,7 @@ public class MemoryPanel extends JPanel {
     public MemoryPanel() {
         // 初始化操作
         this.setLayout(null);
-        this.setBounds(1240, 45, 170, 730);
+        this.setBounds(1240, 20, 170, 730);
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
 
@@ -41,7 +43,7 @@ public class MemoryPanel extends JPanel {
             int start = 0;  // 每一次绘画的起始坐标
             int pid = -1;   // 进程号
             int mem = -1;   // 内存大小
-            int rev = this.getHeight()/Infomation.memorySize;
+            int rev = this.getHeight()/ Infomation.memorySize;
             Graphics2D g2 = (Graphics2D) g;
             for(int i = 0; i < memoryList.length; i++){
                 System.out.println("memoryList："+ i + " " + memoryList[i]);

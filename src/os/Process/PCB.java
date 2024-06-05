@@ -1,4 +1,4 @@
-package os;
+package os.Process;
 
 public class PCB implements Comparable<PCB>{
     private int Pid;   // 进程名

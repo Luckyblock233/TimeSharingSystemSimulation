@@ -8,4 +8,5 @@ public class Infomation {
     // 存放内存信息
     public static int memorySize=64;
     public static int osSize=32;
+    public static int storageSize=64;
 }

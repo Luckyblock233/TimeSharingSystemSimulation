@@ -1,4 +1,6 @@
-package os;
+package os.Process;
+import os.Infomation;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -14,7 +16,7 @@ public class ProgressBar extends JProgressBar {
     // 更新进度条值+1
     public void updateValue() throws Exception {
         super.setValue(getValue()+1);
-        if(getValue()!=Infomation.singleTime){
+        if(getValue()!= Infomation.singleTime){
             super.setForeground(Color.RED);
         }else if(getValue()==Infomation.singleTime){
             super.setForeground(Color.GREEN);
