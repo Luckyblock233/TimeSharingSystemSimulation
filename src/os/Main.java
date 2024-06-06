@@ -34,19 +34,19 @@ class Start {
     public Start() {
         myPanel.add(new JLabel("内存大小:"));
         myPanel.add(Field1);
-        myPanel.add(Box.createHorizontalStrut(15)); // a spacer
+        myPanel.add(Box.createHorizontalStrut(15)); 
         myPanel.add(new JLabel("时间片大小:"));
         myPanel.add(Field2);
-        myPanel.add(Box.createHorizontalStrut(15)); // a spacer
+        myPanel.add(Box.createHorizontalStrut(15)); 
         myPanel.add(new JLabel("系统所需内存:"));
         myPanel.add(Field3);
-        myPanel.add(Box.createHorizontalStrut(15)); // a spacer
+        myPanel.add(Box.createHorizontalStrut(15)); 
         myPanel.add(new JLabel("最大道数:"));
         myPanel.add(Field4);
-        myPanel.add(Box.createHorizontalStrut(15)); // a spacer
+        myPanel.add(Box.createHorizontalStrut(15)); 
         myPanel.add(new JLabel("外存大小:"));
         myPanel.add(Field5);
-        myPanel.add(Box.createHorizontalStrut(15)); // a spacer
+        myPanel.add(Box.createHorizontalStrut(15)); 
 
         while (true) {
             int result = JOptionPane.showConfirmDialog(null, myPanel,
@@ -58,7 +58,6 @@ class Start {
                 break;
             }
         }
-
     }
 }
 
